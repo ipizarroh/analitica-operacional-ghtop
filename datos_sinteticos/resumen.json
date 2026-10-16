@@ -1,0 +1,18 @@
+{
+  "noviembre_enero": {
+    "naturaleza": "SINTÉTICO POSTERIOR",
+    "filas": 77,
+    "filas_positivas": 70,
+    "monto_positivo_clp": 910000,
+    "promedio_positivo_clp": 13000.0,
+    "horas": 96.0
+  },
+  "marzo_junio": {
+    "naturaleza": "SINTÉTICO POSTERIOR",
+    "filas": 87,
+    "filas_positivas": 80,
+    "monto_positivo_clp": 1040000,
+    "promedio_positivo_clp": 13000.0,
+    "horas": 108.5
+  }
+}
