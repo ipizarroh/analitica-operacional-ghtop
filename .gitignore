@@ -1,0 +1,16 @@
+.pbi/
+**/.pbi/
+*.pbix
+*.pbit
+*.abf
+*.xlsx
+*.xls
+*.pdf
+*.zip
+*.rar
+.env*
+__pycache__/
+*.pyc
+PRIVADO_AUDITORIA/
+CONTINUIDAD/
+fuentes*/
