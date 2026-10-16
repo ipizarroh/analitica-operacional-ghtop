@@ -1,0 +1,6 @@
+// Demostración sintética posterior. Tabla: ReservasDemo. No es DAX histórico.
+Registros demo = COUNTROWS(ReservasDemo)
+Monto positivo demo = CALCULATE(SUM(ReservasDemo[monto_clp]), ReservasDemo[monto_clp] > 0)
+Registros positivos demo = CALCULATE(COUNTROWS(ReservasDemo), ReservasDemo[monto_clp] > 0)
+Promedio por registro positivo demo = DIVIDE([Monto positivo demo], [Registros positivos demo])
+Horas demo = SUM(ReservasDemo[horas])
