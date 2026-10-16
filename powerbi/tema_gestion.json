@@ -1,0 +1,31 @@
+{
+  "name": "Gestión clara",
+  "dataColors": [
+    "#146D78",
+    "#3157A4",
+    "#A45F00",
+    "#7A438C",
+    "#497245",
+    "#6D6262"
+  ],
+  "background": "#F3F6FA",
+  "foreground": "#16324F",
+  "tableAccent": "#146D78",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 14,
+      "color": "#16324F"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11,
+      "color": "#304960"
+    },
+    "callout": {
+      "fontFace": "Segoe UI",
+      "fontSize": 30,
+      "color": "#16324F"
+    }
+  }
+}
