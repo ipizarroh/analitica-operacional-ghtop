@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="titulo desc">
+<title id="titulo">Demostración sintética de uso de canchas</title>
+<desc id="desc">Datos enteramente inventados; horas por mes, registros e importes positivos.</desc>
+<rect width="1200" height="660" fill="#F3F6FA"/>
+<text x="40" y="46" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#146D78" font-weight="bold">ANALÍTICA OPERACIONAL</text>
+<text x="40" y="88" font-family="DejaVu Sans, sans-serif" font-size="29" fill="#16324F" font-weight="bold">Gestión comercial · ejemplo marzo a junio</text>
+<text x="40" y="119" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#16324F" font-weight="normal">DEMOSTRACIÓN SINTÉTICA POSTERIOR · fechas y magnitudes inventadas</text>
+<rect x="40" y="151" width="362" height="110" rx="12" fill="white"/>
+<text x="60" y="184" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#16324F" font-weight="normal">Registros positivos</text>
+<text x="60" y="230" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#16324F" font-weight="bold">80</text>
+<rect x="418" y="151" width="362" height="110" rx="12" fill="white"/>
+<text x="438" y="184" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#16324F" font-weight="normal">Promedio positivo (CLP)</text>
+<text x="438" y="230" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#16324F" font-weight="bold">$13.000</text>
+<rect x="796" y="151" width="362" height="110" rx="12" fill="white"/>
+<text x="816" y="184" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#16324F" font-weight="normal">Monto positivo (CLP)</text>
+<text x="816" y="230" font-family="DejaVu Sans, sans-serif" font-size="30" fill="#16324F" font-weight="bold">$1.040.000</text>
+<text x="40" y="310" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#16324F" font-weight="bold">Monto positivo por mes de demostración</text>
+<text x="40" y="373" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#16324F" font-weight="normal">2031-03</text>
+<rect x="170" y="350" width="329.3" height="32" rx="4" fill="#146D78"/>
+<text x="514.3403693931398" y="373" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#16324F" font-weight="normal">$158.000</text>
+<text x="40" y="433" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#16324F" font-weight="normal">2031-04</text>
+<rect x="170" y="410" width="754.6" height="32" rx="4" fill="#146D78"/>
+<text x="939.5646437994723" y="433" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#16324F" font-weight="normal">$362.000</text>
+<text x="40" y="493" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#16324F" font-weight="normal">2031-05</text>
+<rect x="170" y="470" width="790.0" height="32" rx="4" fill="#146D78"/>
+<text x="975.0" y="493" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#16324F" font-weight="normal">$379.000</text>
+<text x="40" y="553" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#16324F" font-weight="normal">2031-06</text>
+<rect x="170" y="530" width="293.9" height="32" rx="4" fill="#146D78"/>
+<text x="478.90501319261216" y="553" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#16324F" font-weight="normal">$141.000</text>
+<text x="40" y="612" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#16324F" font-weight="normal">Fuente: generador incluido. No representa cifras ni resultados reales de GHTOP.</text>
+</svg>
