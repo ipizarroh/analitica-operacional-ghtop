@@ -23,3 +23,11 @@ Existe un proyecto auditable con análisis por deporte, mes, día y horario. No 
 ## Decisión y aprendizaje
 
 El análisis puede orientar la programación de actividades hacia días de baja demanda. La decisión de realizar promociones corresponde al relato del autor; no se atribuye una mejora cuantificada. La lección transferible es definir la unidad de análisis y distinguir importe registrado, cobro y actividad antes de presentar resultados.
+
+## Evolución técnica 2026
+
+La reconstrucción mantiene el esquema completo y usa registros artificiales desde cero. [Modelo/ETL](../documentacion/diseno_y_modelo.md), [KPI](../documentacion/indicadores.md), [antes/actual](../documentacion/evolucion_2026.md) y [fuentes DAX/M](../powerbi/modelos/A/).
+
+![Visor funcional sintético A](../imagenes/ghtop_A_verificado.jpg)
+
+Captura web posterior; no captura histórica ni Desktop. El PBIP candidato permanece privado y PENDIENTE_VALIDACION_DESKTOP. [Guía exacta](../documentacion/GUIA_VALIDACION_DESKTOP.md).

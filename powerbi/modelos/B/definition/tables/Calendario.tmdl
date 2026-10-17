@@ -1,0 +1,56 @@
+table 'Calendario'
+
+	column 'Fecha'
+		isKey
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "Fecha"
+		formatString: yyyy-MM-dd
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Abierto'
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: "Abierto"
+
+	column 'Horas disponibles por cancha'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Horas disponibles por cancha"
+
+	column 'Motivo'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Motivo"
+
+	column 'Mes'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Mes"
+
+	column 'Día'
+		sortByColumn: 'Orden Día'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Día"
+
+	column 'Orden Día'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: "Orden Día"
+
+	partition 'Calendario' = m
+		mode: import
+		source =
+			let
+			    Libro = Excel.Workbook(File.Contents(RutaExcel), null, true),
+			    Hoja = Libro{[Item="CalendarioOperacion",Kind="Sheet"]}[Data],
+			    Cabeceras = Table.PromoteHeaders(Hoja, [PromoteAllScalars=true]),
+			    Contrato = Table.SelectColumns(Cabeceras, {"Fecha", "Abierto", "Horas disponibles por cancha", "Motivo"}, MissingField.Error),
+			    Tipos = Table.TransformColumnTypes(Contrato, {{"Fecha", type date}, {"Abierto", type logical}, {"Horas disponibles por cancha", type number}, {"Motivo", type text}}, "es-CL"),
+			    Mes = Table.AddColumn(Tipos, "Mes", each Date.ToText([Fecha], "yyyy-MM"), type text),
+			    Dia = Table.AddColumn(Mes, "Día", each Date.DayOfWeekName([Fecha], "es-CL"), type text),
+			    Orden = Table.AddColumn(Dia, "Orden Día", each Date.DayOfWeek([Fecha], Day.Monday)+1, Int64.Type)
+			in
+			    Orden

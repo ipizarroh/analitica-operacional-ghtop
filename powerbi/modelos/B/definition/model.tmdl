@@ -1,0 +1,10 @@
+model Model
+	culture: es-CL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CL
+
+	annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table 'REGISTRO'
+ref table Calendario
+ref table DimLinea

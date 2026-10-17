@@ -1,0 +1,48 @@
+// Especificación 2026; ejecución DAX en Desktop pendiente.
+// Obligación registrada, incluye importes pendientes; no equivale a caja.
+Monto registrado = COALESCE(SUM('Arriendos de cancha'[Monto a pagar]), 0)
+
+// Filtro explícito del estado confirmado; regla sintética, no acreditación bancaria.
+Cobro bruto confirmado demo = CALCULATE([Monto registrado], KEEPFILTERS('Arriendos de cancha'[¿pagado¡] = "Si"))
+
+// Recepción después de comisión artificial; no es neto tributario.
+Recibido neto canal = COALESCE(SUM('Arriendos de cancha'[recibido]), 0)
+
+// Grano fila de uso. No usa recuento de estado de pago.
+Registros de uso = COALESCE(COUNTROWS('Arriendos de cancha'), 0)
+
+// Solo el generador garantiza ID único. No extender esa garantía a la fuente histórica.
+Reservas únicas demo = COALESCE(DISTINCTCOUNT('Arriendos de cancha'[ID arriendocancha]), 0)
+
+// Duración por fila calculada en M. No diferencia de mínimos agregados.
+Horas jugadas = COALESCE(SUM('Arriendos de cancha'[Horas de Uso]), 0)
+
+// Capacidad sobre días del calendario y canchas filtradas de la dimensión; horario y cierres inventados.
+Horas disponibles demo = COALESCE(SUM(Calendario[Horas disponibles por cancha]), 0) * COALESCE(COUNTROWS(DimCancha), 0)
+
+// Solo demostración de denominador controlado; no ocupación histórica real.
+Utilización demo = DIVIDE([Horas jugadas], [Horas disponibles demo])
+
+// Calendario explícito evita contar únicamente días con reservas.
+Días abiertos demo = CALCULATE(COALESCE(COUNTROWS(Calendario), 0), KEEPFILTERS(Calendario[Abierto] = TRUE()))
+
+// Normalización por día abierto sintético; no controla por promoción ni clima.
+Horas por día abierto = DIVIDE([Horas jugadas], [Días abiertos demo])
+
+// Ventana fija noviembre 2025; deliberadamente ignora segmentador de fecha, conserva deporte/cancha.
+Horas jugadas Noviembre = CALCULATE([Horas jugadas], REMOVEFILTERS(Calendario), Calendario[Mes] = "2025-11")
+
+// Ventana fija diciembre 2025, sin mezclar años.
+Horas jugadas Diciembre = CALCULATE([Horas jugadas], REMOVEFILTERS(Calendario), Calendario[Mes] = "2025-12")
+
+// Variación descriptiva, no mejora causal. BLANK si noviembre no tiene base.
+Variación horas nov-dic = DIVIDE([Horas jugadas Diciembre]-[Horas jugadas Noviembre], [Horas jugadas Noviembre])
+
+// Alias de compatibilidad histórica; usar título Monto registrado.
+Ingresos totales = [Monto registrado]
+
+// Conserva el filtro de deporte seleccionado.
+Ingresos Tenis = CALCULATE([Monto registrado], KEEPFILTERS(DimCancha[Deporte] = "Tenis"))
+
+// Alias histórico conservado, corresponde a monto por pagar.
+Ingresos Pádel = CALCULATE([Monto registrado], KEEPFILTERS(DimCancha[Deporte] = "Pádel"))

@@ -1,0 +1,36 @@
+proyecto,columna,tipo_m,nulo_admitido,descripcion,origen
+A,ID arriendocancha,type text,False,Clave única artificial A; no garantía histórica,SINTETICO_DESDE_CERO
+A,Fecha,type date,False,Fecha de uso; intervalo parcial,SINTETICO_DESDE_CERO
+A,Día semana,type text,False,Día derivado de fecha,SINTETICO_DESDE_CERO
+A,Hora inicio,type time,False,Inicio de sesión 08:00–22:00,SINTETICO_DESDE_CERO
+A,Hora termino,type time,False,Término posterior al inicio,SINTETICO_DESDE_CERO
+A,Uso de cancha,type number,False,Duración en horas; dato artificial numérico,SINTETICO_DESDE_CERO
+A,Cancha,type text,False,Clave T1/T2/P1/P2 en RAW; deporte después del M A,SINTETICO_DESDE_CERO
+A,Donde pagó,type text,True,Canal artificial EFECTIVO DEMO o MP DEMO; nulo sin pago,SINTETICO_DESDE_CERO
+A,Cliente,type text,False,CLIENTE_FICTICIO; no nombre real,SINTETICO_DESDE_CERO
+A,Uso de luz artificial(Si/No),type text,False,Si/No inventado por horario,SINTETICO_DESDE_CERO
+A,Monto a pagar,Currency.Type,False,Importe registrado; incluye pendientes,SINTETICO_DESDE_CERO
+A,¿pagado¡,type text,False,Si/No/Juego gratis; enum compatible,SINTETICO_DESDE_CERO
+A,Pagado en ,type text,True,Canal confirmado; conserva espacio final del encabezado,SINTETICO_DESDE_CERO
+A,IVA (19%),Currency.Type,False,"Ejemplo aritmético bruto-neto, no asesoría tributaria",SINTETICO_DESDE_CERO
+A,Comisión mercago pago,Currency.Type,False,2% MP inventado; no condición real,SINTETICO_DESDE_CERO
+A,recibido,Currency.Type,False,Bruto confirmado menos comisión demo,SINTETICO_DESDE_CERO
+A,Neto Sin IVA,Currency.Type,False,"Bruto confirmado / 1.19, redondeado",SINTETICO_DESDE_CERO
+B,FECHA,type date,False,Fecha de movimiento parcial,SINTETICO_DESDE_CERO
+B,MES,type text,False,Año-mes derivado de FECHA,SINTETICO_DESDE_CERO
+B,DIA,type text,False,Día derivado de FECHA,SINTETICO_DESDE_CERO
+B,EMPRESA,type text,False,EMPRESA_FICTICIA constante artificial,SINTETICO_DESDE_CERO
+B,HORA INICIO,type time,True,Nula en movimientos sin uso de cancha,SINTETICO_DESDE_CERO
+B,HORA FIN,type time,True,Nula en movimientos sin uso de cancha,SINTETICO_DESDE_CERO
+B,LINEA DE NEGOCIO,type text,False,"Deporte, clases, academia, escuela, tienda o gasto inventados",SINTETICO_DESDE_CERO
+B,SUBLINEA DE NEGOCIO,type text,False,Categoría de ejemplo y exclusiones M,SINTETICO_DESDE_CERO
+B,DETALLE,type text,False,Texto genérico artificial,SINTETICO_DESDE_CERO
+B,CANCHA,type text,True,Clave de cancha; nula fuera de uso de cancha,SINTETICO_DESDE_CERO
+B,CLIENTE,type text,True,Identificador ficticio o nulo sin cliente,SINTETICO_DESDE_CERO
+B,MONTO COBRADO,Currency.Type,False,"Monto con signo; positivos, cero y gastos negativos",SINTETICO_DESDE_CERO
+B,EFECTIVO RECIBIDO,Currency.Type,False,Canal efectivo con signo,SINTETICO_DESDE_CERO
+B,MONTO RECIBIDO MP,Currency.Type,False,Canal MP después de comisión artificial,SINTETICO_DESDE_CERO
+B,IVA,Currency.Type,False,Ejemplo bruto-neto con signo,SINTETICO_DESDE_CERO
+B,NETO SIN IVA,Currency.Type,False,Monto /1.19 demo,SINTETICO_DESDE_CERO
+B,Participación administración (demo),Currency.Type,False,Campo público seguro; 15% neto artificial independiente,SINTETICO_DESDE_CERO
+B,ID movimiento (demo),type text,False,"Extensión nueva de trazabilidad B, no clave histórica",SINTETICO_DESDE_CERO

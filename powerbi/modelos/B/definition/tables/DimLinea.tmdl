@@ -1,0 +1,15 @@
+table 'DimLinea'
+
+	column 'LINEA DE NEGOCIO'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "LINEA DE NEGOCIO"
+
+	partition 'DimLinea' = m
+		mode: import
+		source =
+			let
+			    Lineas = Table.Distinct(Table.SelectColumns(REGISTRO, {"LINEA DE NEGOCIO"})),
+			    Orden = Table.Sort(Lineas, {{"LINEA DE NEGOCIO", Order.Ascending}})
+			in
+			    Orden

@@ -1,0 +1,98 @@
+{
+  "proyecto": "A",
+  "estado": "VERIFICADO_ESTATICO; PENDIENTE_VALIDACION_DESKTOP",
+  "hoja": "Arriendos de cancha",
+  "cabeceras_fila": 1,
+  "columnas_operativas": 17,
+  "columnas_raw": 39,
+  "columnas": [
+    {
+      "nombre": "ID arriendocancha",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Fecha",
+      "tipo_m": "type date",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Día semana",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Hora inicio",
+      "tipo_m": "type time",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Hora termino",
+      "tipo_m": "type time",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Uso de cancha",
+      "tipo_m": "type number",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Cancha",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Donde pagó",
+      "tipo_m": "type text",
+      "nulo_admitido": true
+    },
+    {
+      "nombre": "Cliente",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Uso de luz artificial(Si/No)",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Monto a pagar",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "¿pagado¡",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Pagado en ",
+      "tipo_m": "type text",
+      "nulo_admitido": true
+    },
+    {
+      "nombre": "IVA (19%)",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Comisión mercago pago",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "recibido",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Neto Sin IVA",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    }
+  ],
+  "grano": "fila de uso con ID sintético único",
+  "origen": "100% artificial desde cero",
+  "validacion_nativa": false
+}
