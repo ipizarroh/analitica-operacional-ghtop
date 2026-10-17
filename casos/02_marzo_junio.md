@@ -25,3 +25,11 @@ El proyecto disponible contiene segmentadores, análisis temporal, comparación 
 Una lectura útil combina montos positivos, cantidad de registros y cobertura de fechas. Antes de comparar desempeño por día debe definirse si se mide monto, movimientos o duración, y si existe un denominador de días abiertos. No se estimó ocupación sobre capacidad disponible, porque esa disponibilidad no está acreditada.
 
 Falta comprobar la copia rediseñada en Desktop: actualización, gráficos, contexto de segmentadores y totales. La demostración pública inventada ilustra controles actuales y no completa esos vacíos históricos.
+
+## Evolución técnica 2026
+
+La reconstrucción mantiene el esquema completo y usa registros artificiales desde cero. [Modelo/ETL](../documentacion/diseno_y_modelo.md), [KPI](../documentacion/indicadores.md), [antes/actual](../documentacion/evolucion_2026.md) y [fuentes DAX/M](../powerbi/modelos/B/).
+
+Captura funcional pendiente de revisión de la publicación web.
+
+Captura web posterior; no captura histórica ni Desktop. El PBIP candidato permanece privado y PENDIENTE_VALIDACION_DESKTOP. [Guía exacta](../documentacion/GUIA_VALIDACION_DESKTOP.md).

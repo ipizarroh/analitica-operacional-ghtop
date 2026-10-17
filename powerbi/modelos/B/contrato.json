@@ -1,0 +1,103 @@
+{
+  "proyecto": "B",
+  "estado": "VERIFICADO_ESTATICO; PENDIENTE_VALIDACION_DESKTOP",
+  "hoja": "REGISTRO",
+  "cabeceras_fila": 2,
+  "columnas_operativas": 18,
+  "columnas_raw": 21,
+  "columnas": [
+    {
+      "nombre": "FECHA",
+      "tipo_m": "type date",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "MES",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "DIA",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "EMPRESA",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "HORA INICIO",
+      "tipo_m": "type time",
+      "nulo_admitido": true
+    },
+    {
+      "nombre": "HORA FIN",
+      "tipo_m": "type time",
+      "nulo_admitido": true
+    },
+    {
+      "nombre": "LINEA DE NEGOCIO",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "SUBLINEA DE NEGOCIO",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "DETALLE",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "CANCHA",
+      "tipo_m": "type text",
+      "nulo_admitido": true
+    },
+    {
+      "nombre": "CLIENTE",
+      "tipo_m": "type text",
+      "nulo_admitido": true
+    },
+    {
+      "nombre": "MONTO COBRADO",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "EFECTIVO RECIBIDO",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "MONTO RECIBIDO MP",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "IVA",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "NETO SIN IVA",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "Participación administración (demo)",
+      "tipo_m": "Currency.Type",
+      "nulo_admitido": false
+    },
+    {
+      "nombre": "ID movimiento (demo)",
+      "tipo_m": "type text",
+      "nulo_admitido": false
+    }
+  ],
+  "grano": "movimiento con ID sintético añadido; no transacción comercial",
+  "origen": "100% artificial desde cero",
+  "validacion_nativa": false
+}

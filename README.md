@@ -1,43 +1,40 @@
-# Analítica operacional de un club deportivo
+# GHTOP · Analítica operacional y control de gestión
 
-**Ignacio Pizarro Hurtado · Excel, Power BI y control de gestión**
+**Ignacio Pizarro Hurtado · Power BI · DAX · Power Query · modelamiento y calidad**
 
-Este caso documenta cómo utilicé registros operacionales y comerciales de GHTOP para analizar actividad, uso de canchas y montos registrados. Reúne dos trabajos independientes: noviembre de 2025 a enero de 2026 y marzo a junio de 2026. Cada uno conserva su propio alcance y sus definiciones.
+Desarrollé los dashboards históricos de GHTOP para analizar uso de canchas, actividad y montos registrados en la administración del club. Este portafolio continúa ese trabajo con dos proyectos independientes: **A, noviembre 2025–enero 2026**, y **B, marzo–junio 2026**. La reconstrucción de 2026 conserva el contrato de las tablas y utiliza registros totalmente inventados.
 
-![Ejemplo inventado de análisis operacional](imagenes/noviembre_enero.svg)
+Captura funcional pendiente de revisión de la publicación web.
 
-**La imagen y los datos de este repositorio son una demostración sintética posterior.** No muestran cifras reales ni reproducen los dashboards históricos.
+*Captura del visor web posterior, calculado sobre el esquema completo. No es Power BI Desktop ni una captura histórica. La validación nativa de los PBIP sigue pendiente.*
 
-## Preguntas de gestión
+## Mi trabajo y la evolución técnica
 
-- ¿Cómo se distribuye la actividad por deporte, día y horario?
-- ¿Qué significa ingreso en cada informe y qué filas entran en el cálculo?
-- ¿Cómo se interpreta el ticket cuando hay registros sin cobro o meses parciales?
+El trabajo histórico incluye reportería Excel/Power BI, consultas M, medidas DAX y visuales de actividad e importes. En la evolución actual explicito qué mide cada suma, separo monto por pagar de cobro confirmado, controlo el denominador de utilización y distingo movimientos de transacciones. Las decisiones y sus límites son revisables en el código y los casos.
 
-## Mi participación
-
-En la administración del club desarrollé reportería en Excel y Power BI. Los proyectos disponibles permiten revisar consultas Power Query, medidas DAX, filtros, relaciones y visualizaciones. La revisión posterior identificó diferencias entre montos por pagar, importes positivos registrados y recuentos de campos de texto. Estos conceptos requieren etiquetas y denominadores explícitos.
-
-Según mi relato, utilicé los análisis para orientar actividades y promociones en días de menor demanda. También reporté restricciones por lluvia. La evidencia disponible no permite cuantificar el efecto causal de esas decisiones.
-
-## Recorrido
-
-| Contenido | Para qué sirve |
+| Ver en tres minutos | Evidencia |
 |---|---|
-| [Noviembre–enero](casos/01_noviembre_enero.md) | Demanda, duración, importes y estados de pago |
-| [Marzo–junio](casos/02_marzo_junio.md) | Líneas de negocio, filtros y ticket por registro |
-| [Definiciones](documentacion/indicadores.md) | Fórmula, universo y límites de cada concepto |
-| [Diseño y modelo](documentacion/diseno_y_modelo.md) | Rediseño posterior y separación de los modelos |
-| [Demostración](documentacion/demostracion.md) | Generación desde cero, código y controles |
-| [Fuentes y límites](documentacion/fuentes_y_limites.md) | Evidencia histórica frente a desarrollo actual |
+| [Proyecto A](casos/01_noviembre_enero.md) | Cobro, estado de pago, duración, calendario y capacidad sintética |
+| [Proyecto B](casos/02_marzo_junio.md) | Exclusiones, movimientos con signo y promedio por registro positivo |
+| [Modelo y ETL](documentacion/diseno_y_modelo.md) | Dos estrellas pequeñas, granos y relaciones en una dirección |
+| [DAX y M completos](powerbi/modelos/) | Especificaciones y TMDL separados A/B; ejecución nativa pendiente |
+| [KPI](documentacion/indicadores.md) | Numeradores, denominadores, filtros y pruebas |
+| [Antes / versión actual](documentacion/evolucion_2026.md) | Continuidad, correcciones y ampliaciones justificadas |
 
-## Reproducir el ejemplo
+## Explorar y reproducir
+
+[**Visor interactivo público**](https://ipizarroh.github.io/analitica-operacional-ghtop/) · [HTML autocontenido](demo/index.html) · [Excel A](datos_compatibles/GHTOP_A_sintetico.xlsx) · [Excel B](datos_compatibles/GHTOP_B_sintetico.xlsx)
 
 ```bash
-python src/demostracion.py
+python src/generar_esquema.py --seed 20261016
+python src/construir_web.py
+python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
+node tests/test_web.mjs
 ```
 
-Los ejemplos DAX/M y el tema en `powerbi/` son nuevos. Las copias privadas PBIP rediseñadas requieren validación en Power BI Desktop y no forman parte de este repositorio.
+Abra `demo/index.html` en el navegador. No requiere servidor ni transmite información. El generador Python es autosuficiente; el exportador Excel usa el runtime `@oai/artifact-tool`, documentado en [reproducción](documentacion/demostracion.md). Ambos Excel ya se entregan creados y comprobados.
 
-El proyecto acredita análisis y reportería sobre un contexto operacional acotado. No se presentan como demostrados despliegue empresarial, RLS, optimización medida ni capacidades senior. [Autoría y uso](AUTORIA_Y_USO.md).
+**Compuerta Power BI:** los dos PBIP completos se entregan privadamente como `PENDIENTE_VALIDACION_DESKTOP`. No se distribuyen como informes funcionales verificados. Los fuentes semánticos publicables permiten revisar las medidas y el modelo; [la guía nativa](documentacion/GUIA_VALIDACION_DESKTOP.md) especifica cómo completar la prueba. Los tests Python/SQL/JavaScript y de Excel no ejecutan DAX ni M.
+
+Los importes, clientes, frecuencias y cierres son artificiales. No prueban impacto comercial, causalidad de promociones o clima, ni rendimiento medido. [Autoría](AUTORIA_Y_USO.md) · [Verificación](VERIFICACION.md) · [Fuentes y límites](documentacion/fuentes_y_limites.md).

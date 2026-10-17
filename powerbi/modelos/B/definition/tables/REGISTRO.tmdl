@@ -1,0 +1,161 @@
+table 'REGISTRO'
+
+	/// Suma del universo después de exclusiones M; incluye movimientos negativos.
+	measure 'Monto con signo' = SUM(REGISTRO[MONTO COBRADO])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Nombre histórico conservado; suma registros positivos, no conciliación bancaria.
+	measure 'Ingresos Cobrados' = CALCULATE(SUM(REGISTRO[MONTO COBRADO]), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Filas del registro, no arriendos únicos.
+	measure 'Movimientos' = COUNTROWS(REGISTRO)
+		formatString: #,0
+		displayFolder: Portafolio 2026
+
+	/// Denominador del promedio por registro positivo.
+	measure 'Registros positivos' = CALCULATE(COUNTROWS(REGISTRO), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
+		formatString: #,0
+		displayFolder: Portafolio 2026
+
+	/// Promedio por fila positiva; BLANK sin base. No ticket por transacción comercial sin cabecera de venta.
+	measure 'Ticket Promedio General' = DIVIDE([Ingresos Cobrados], [Registros positivos])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Conserva filtros de período, línea y sublínea.
+	measure 'Ticket Promedio PADEL' = CALCULATE([Ticket Promedio General], KEEPFILTERS(DimLinea[LINEA DE NEGOCIO] = "PADEL"))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Ejemplo después de comisión MP inventada; diferencia de monto no equivale a deuda.
+	measure 'Recepción por canales' = SUM(REGISTRO[EFECTIVO RECIBIDO]) + SUM(REGISTRO[MONTO RECIBIDO MP])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Regla artificial para demostrar campo reservado remapeado; sin condición contractual real.
+	measure 'Participación administración demo' = SUM(REGISTRO[Participación administración (demo)])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	column 'FECHA'
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "FECHA"
+		formatString: yyyy-MM-dd
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'MES'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "MES"
+
+	column 'DIA'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "DIA"
+
+	column 'EMPRESA'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "EMPRESA"
+
+	column 'HORA INICIO'
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "HORA INICIO"
+		formatString: HH:mm
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'HORA FIN'
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "HORA FIN"
+		formatString: HH:mm
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'LINEA DE NEGOCIO'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "LINEA DE NEGOCIO"
+
+	column 'SUBLINEA DE NEGOCIO'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "SUBLINEA DE NEGOCIO"
+
+	column 'DETALLE'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "DETALLE"
+
+	column 'CANCHA'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "CANCHA"
+
+	column 'CLIENTE'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "CLIENTE"
+
+	column 'MONTO COBRADO'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "MONTO COBRADO"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'EFECTIVO RECIBIDO'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "EFECTIVO RECIBIDO"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'MONTO RECIBIDO MP'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "MONTO RECIBIDO MP"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'IVA'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "IVA"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'NETO SIN IVA'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "NETO SIN IVA"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'Participación administración (demo)'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Participación administración (demo)"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'ID movimiento (demo)'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "ID movimiento (demo)"
+
+	partition 'REGISTRO' = m
+		mode: import
+		source =
+			let
+			    Libro = Excel.Workbook(File.Contents(RutaExcel), null, true),
+			    Hoja = Libro{[Item="REGISTRO",Kind="Sheet"]}[Data],
+			    Cabeceras = Table.PromoteHeaders(Table.Skip(Hoja,1), [PromoteAllScalars=true]),
+			    Contrato = Table.SelectColumns(Cabeceras, {"FECHA", "MES", "DIA", "EMPRESA", "HORA INICIO", "HORA FIN", "LINEA DE NEGOCIO", "SUBLINEA DE NEGOCIO", "DETALLE", "CANCHA", "CLIENTE", "MONTO COBRADO", "EFECTIVO RECIBIDO", "MONTO RECIBIDO MP", "IVA", "NETO SIN IVA", "Participación administración (demo)", "ID movimiento (demo)"}, MissingField.Error),
+			    Tipos = Table.TransformColumnTypes(Contrato, {{"FECHA", type date}, {"MES", type text}, {"DIA", type text}, {"EMPRESA", type text}, {"HORA INICIO", type time}, {"HORA FIN", type time}, {"LINEA DE NEGOCIO", type text}, {"SUBLINEA DE NEGOCIO", type text}, {"DETALLE", type text}, {"CANCHA", type text}, {"CLIENTE", type text}, {"MONTO COBRADO", Currency.Type}, {"EFECTIVO RECIBIDO", Currency.Type}, {"MONTO RECIBIDO MP", Currency.Type}, {"IVA", Currency.Type}, {"NETO SIN IVA", Currency.Type}, {"Participación administración (demo)", Currency.Type}, {"ID movimiento (demo)", type text}}, "es-CL"),
+			    Fechas = Table.SelectRows(Tipos, each [FECHA] <> null),
+			    Universo = Table.SelectRows(Fechas, each [LINEA DE NEGOCIO] <> "TIENDA" and not List.Contains({"PAGO G3", "COPA LITORAL"}, [SUBLINEA DE NEGOCIO])),
+			    Normalizado = Table.ReplaceValue(Universo, "ESCALERILLA", "ESCALERILLA TENIS", Replacer.ReplaceText, {"LINEA DE NEGOCIO"})
+			in
+			    Normalizado

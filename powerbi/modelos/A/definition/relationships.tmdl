@@ -1,0 +1,9 @@
+relationship Fecha_A
+	fromColumn: 'Arriendos de cancha'.'Fecha'
+	toColumn: Calendario.Fecha
+	crossFilteringBehavior: oneDirection
+
+relationship Dimension_A
+	fromColumn: 'Arriendos de cancha'.'Cancha original'
+	toColumn: DimCancha.'Cancha'
+	crossFilteringBehavior: oneDirection

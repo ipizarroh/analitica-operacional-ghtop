@@ -1,0 +1,1 @@
+expression RutaExcel = "C:\DATOS_SINTETICOS\GHTOP_A_sintetico.xlsx" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]

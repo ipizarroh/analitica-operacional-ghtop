@@ -1,0 +1,89 @@
+{
+  "A": {
+    "total": {
+      "filas": 429,
+      "monto_registrado": 5133000,
+      "monto_positivo": 5133000,
+      "registros_positivos": 385,
+      "ticket_positivo": 13332.467532467532,
+      "cobro_bruto_confirmado_demo": 4706000,
+      "horas": 630.5,
+      "horas_disponibles_sinteticas": 4368,
+      "utilizacion_sintetica": 0.14434523809523808
+    },
+    "meses": {
+      "2025-11": {
+        "filas": 147,
+        "monto_registrado": 1733000,
+        "monto_positivo": 1733000,
+        "registros_positivos": 131,
+        "ticket_positivo": 13229.007633587786,
+        "cobro_bruto_confirmado_demo": 1565000,
+        "horas": 215.5,
+        "horas_disponibles_sinteticas": 1512,
+        "utilizacion_sintetica": 0.14252645502645503
+      },
+      "2025-12": {
+        "filas": 156,
+        "monto_registrado": 1842000,
+        "monto_positivo": 1842000,
+        "registros_positivos": 139,
+        "ticket_positivo": 13251.79856115108,
+        "cobro_bruto_confirmado_demo": 1673000,
+        "horas": 229.5,
+        "horas_disponibles_sinteticas": 1624,
+        "utilizacion_sintetica": 0.14131773399014777
+      },
+      "2026-01": {
+        "filas": 126,
+        "monto_registrado": 1558000,
+        "monto_positivo": 1558000,
+        "registros_positivos": 115,
+        "ticket_positivo": 13547.826086956522,
+        "cobro_bruto_confirmado_demo": 1468000,
+        "horas": 185.5,
+        "horas_disponibles_sinteticas": 1232,
+        "utilizacion_sintetica": 0.15056818181818182
+      }
+    }
+  },
+  "B": {
+    "total": {
+      "filas": 524,
+      "monto_registrado": 6196500,
+      "monto_positivo": 6235000,
+      "registros_positivos": 432,
+      "ticket_positivo": 14432.87037037037
+    },
+    "meses": {
+      "2026-03": {
+        "filas": 82,
+        "monto_registrado": 945500,
+        "monto_positivo": 949000,
+        "registros_positivos": 67,
+        "ticket_positivo": 14164.179104477613
+      },
+      "2026-04": {
+        "filas": 175,
+        "monto_registrado": 2216000,
+        "monto_positivo": 2230000,
+        "registros_positivos": 155,
+        "ticket_positivo": 14387.09677419355
+      },
+      "2026-05": {
+        "filas": 173,
+        "monto_registrado": 1853000,
+        "monto_positivo": 1867000,
+        "registros_positivos": 132,
+        "ticket_positivo": 14143.939393939394
+      },
+      "2026-06": {
+        "filas": 94,
+        "monto_registrado": 1182000,
+        "monto_positivo": 1189000,
+        "registros_positivos": 78,
+        "ticket_positivo": 15243.589743589744
+      }
+    }
+  }
+}

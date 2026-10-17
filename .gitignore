@@ -14,3 +14,7 @@ __pycache__/
 PRIVADO_AUDITORIA/
 CONTINUIDAD/
 fuentes*/
+
+# Excepciones auditadas: SOLO los dos Excel artificiales
+!datos_compatibles/GHTOP_A_sintetico.xlsx
+!datos_compatibles/GHTOP_B_sintetico.xlsx

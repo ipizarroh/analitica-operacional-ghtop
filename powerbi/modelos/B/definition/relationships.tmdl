@@ -1,0 +1,9 @@
+relationship Fecha_B
+	fromColumn: 'REGISTRO'.'FECHA'
+	toColumn: Calendario.Fecha
+	crossFilteringBehavior: oneDirection
+
+relationship Dimension_B
+	fromColumn: 'REGISTRO'.'LINEA DE NEGOCIO'
+	toColumn: DimLinea.'LINEA DE NEGOCIO'
+	crossFilteringBehavior: oneDirection

@@ -1,18 +1,7 @@
-# Qué se ha verificado
+# Verificación de la fase 2
 
-- Generadores Python ejecutados localmente con biblioteca estándar.
-- Pruebas de denominadores, claves, filtros y reproducibilidad mediante `unittest`.
-- CSV y resultados regenerables sin ninguna fuente privada.
-- Visualizaciones SVG nuevas, con rótulo sintético y revisión visual.
-- Revisión de archivos candidatos y de todos los objetos del historial Git antes de publicación.
+Las pruebas son reproducibles desde un clon limpio. Consulte los comandos del README. Python/SQL validan reglas y agregados de los datos artificiales; JavaScript contrasta los cálculos del visor con expectativas Python. El workflow de GitHub ejecuta esas mismas pruebas en cada cambio. Los resultados remotos y capturas se documentan tras la publicación.
 
-No se ejecutaron DAX ni Power Query en Power BI Desktop. Los ejemplos de `powerbi/` son código posterior para importar manualmente y validar. Las imágenes SVG son salidas de Python, no capturas de un informe Power BI abierto. Este repositorio no contiene PBIX ni PBIP históricos.
+Power Query, DAX y los candidatos PBIP requieren validación en Power BI Desktop. No se ejecutaron Desktop, Performance Analyzer ni DAX Studio en Linux. Ningún test JSON/PBIR ni la vista web sustituye apertura, refresh, filtros, guardado y reapertura nativos. No se presenta mejora de rendimiento medida.
 
-Ejecutar desde la raíz:
-
-```bash
-python src/demostracion.py
-python -m unittest discover -s tests -v
-```
-
-No se necesitan paquetes externos. Los archivos generados permanecen separados de la evidencia histórica. Para revisar una propuesta DAX/M se deben verificar tipos, contexto de filtro y totales en Desktop antes de utilizarla.
+La auditoría privada compara términos e identificadores de fuentes, revisa archivos y contenido XLSX, bloquea rutas personales, secretos y originales y revisa los blobs del historial Git. Es un control técnico y revisión de contenido, no una certificación legal. La fuente histórica privada no se publica.

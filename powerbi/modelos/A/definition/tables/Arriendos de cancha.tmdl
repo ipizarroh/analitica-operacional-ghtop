@@ -1,0 +1,218 @@
+table 'Arriendos de cancha'
+
+	/// Obligación registrada, incluye importes pendientes; no equivale a caja.
+	measure 'Monto registrado' = SUM('Arriendos de cancha'[Monto a pagar])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Filtro explícito del estado confirmado; regla sintética, no acreditación bancaria.
+	measure 'Cobro bruto confirmado demo' = CALCULATE([Monto registrado], KEEPFILTERS('Arriendos de cancha'[¿pagado¡] = "Si"))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Recepción después de comisión artificial; no es neto tributario.
+	measure 'Recibido neto canal' = SUM('Arriendos de cancha'[recibido])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Grano fila de uso. No usa recuento de estado de pago.
+	measure 'Registros de uso' = COUNTROWS('Arriendos de cancha')
+		formatString: #,0
+		displayFolder: Portafolio 2026
+
+	/// Solo el generador garantiza ID único. No extender esa garantía a la fuente histórica.
+	measure 'Reservas únicas demo' = DISTINCTCOUNT('Arriendos de cancha'[ID arriendocancha])
+		formatString: #,0
+		displayFolder: Portafolio 2026
+
+	/// Duración por fila calculada en M. No diferencia de mínimos agregados.
+	measure 'Horas jugadas' = SUM('Arriendos de cancha'[Horas de Uso])
+		formatString: #,0.0
+		displayFolder: Portafolio 2026
+
+	/// Capacidad sobre días del calendario y canchas filtradas de la dimensión; horario y cierres inventados.
+	measure 'Horas disponibles demo' = SUM(Calendario[Horas disponibles por cancha]) * COUNTROWS(DimCancha)
+		formatString: #,0.0
+		displayFolder: Portafolio 2026
+
+	/// Solo demostración de denominador controlado; no ocupación histórica real.
+	measure 'Utilización demo' = DIVIDE([Horas jugadas], [Horas disponibles demo])
+		formatString: 0.0%
+		displayFolder: Portafolio 2026
+
+	/// Calendario explícito evita contar únicamente días con reservas.
+	measure 'Días abiertos demo' = CALCULATE(COUNTROWS(Calendario), KEEPFILTERS(Calendario[Abierto] = TRUE()))
+		formatString: #,0
+		displayFolder: Portafolio 2026
+
+	/// Normalización por día abierto sintético; no controla por promoción ni clima.
+	measure 'Horas por día abierto' = DIVIDE([Horas jugadas], [Días abiertos demo])
+		formatString: #,0.00
+		displayFolder: Portafolio 2026
+
+	/// Ventana fija noviembre 2025; deliberadamente ignora segmentador de fecha, conserva deporte/cancha.
+	measure 'Horas jugadas Noviembre' = CALCULATE([Horas jugadas], REMOVEFILTERS(Calendario), Calendario[Mes] = "2025-11")
+		formatString: #,0.0
+		displayFolder: Portafolio 2026
+
+	/// Ventana fija diciembre 2025, sin mezclar años.
+	measure 'Horas jugadas Diciembre' = CALCULATE([Horas jugadas], REMOVEFILTERS(Calendario), Calendario[Mes] = "2025-12")
+		formatString: #,0.0
+		displayFolder: Portafolio 2026
+
+	/// Variación descriptiva, no mejora causal. BLANK si noviembre no tiene base.
+	measure 'Variación horas nov-dic' = DIVIDE([Horas jugadas Diciembre]-[Horas jugadas Noviembre], [Horas jugadas Noviembre])
+		formatString: 0.0%
+		displayFolder: Portafolio 2026
+
+	/// Alias de compatibilidad histórica; usar título Monto registrado.
+	measure 'Ingresos totales' = [Monto registrado]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Conserva el filtro de deporte seleccionado.
+	measure 'Ingresos Tenis' = CALCULATE([Monto registrado], KEEPFILTERS(DimCancha[Deporte] = "Tenis"))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	/// Alias histórico conservado, corresponde a monto por pagar.
+	measure 'Ingresos Pádel' = CALCULATE([Monto registrado], KEEPFILTERS(DimCancha[Deporte] = "Pádel"))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Portafolio 2026
+
+	column 'ID arriendocancha'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "ID arriendocancha"
+
+	column 'Fecha'
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "Fecha"
+		formatString: yyyy-MM-dd
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Día semana'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Día semana"
+
+	column 'Hora inicio'
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "Hora inicio"
+		formatString: HH:mm
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Hora termino'
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: "Hora termino"
+		formatString: HH:mm
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Uso de cancha'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Uso de cancha"
+
+	column 'Cancha'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Cancha"
+
+	column 'Donde pagó'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Donde pagó"
+
+	column 'Cliente'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Cliente"
+
+	column 'Uso de luz artificial(Si/No)'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Uso de luz artificial(Si/No)"
+
+	column 'Monto a pagar'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Monto a pagar"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column '¿pagado¡'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "¿pagado¡"
+
+	column 'Pagado en '
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Pagado en "
+
+	column 'IVA (19%)'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "IVA (19%)"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'Comisión mercago pago'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Comisión mercago pago"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'recibido'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "recibido"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'Neto Sin IVA'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Neto Sin IVA"
+		formatString: \$#,0;(\$#,0);\$#,0
+
+	column 'Cancha original'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Cancha original"
+
+	column 'Horas de Uso'
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: "Horas de Uso"
+
+	column 'Día correspondiente'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: "Día correspondiente"
+
+	column 'Orden Día'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: "Orden Día"
+
+	partition 'Arriendos de cancha' = m
+		mode: import
+		source =
+			let
+			    Libro = Excel.Workbook(File.Contents(RutaExcel), null, true),
+			    Hoja = Libro{[Item="Arriendos de cancha",Kind="Sheet"]}[Data],
+			    Cabeceras = Table.PromoteHeaders(Hoja, [PromoteAllScalars=true]),
+			    Contrato = Table.SelectColumns(Cabeceras, {"ID arriendocancha", "Fecha", "Día semana", "Hora inicio", "Hora termino", "Uso de cancha", "Cancha", "Donde pagó", "Cliente", "Uso de luz artificial(Si/No)", "Monto a pagar", "¿pagado¡", "Pagado en ", "IVA (19%)", "Comisión mercago pago", "recibido", "Neto Sin IVA"}, MissingField.Error),
+			    Tipos = Table.TransformColumnTypes(Contrato, {{"ID arriendocancha", type text}, {"Fecha", type date}, {"Día semana", type text}, {"Hora inicio", type time}, {"Hora termino", type time}, {"Uso de cancha", type number}, {"Cancha", type text}, {"Donde pagó", type text}, {"Cliente", type text}, {"Uso de luz artificial(Si/No)", type text}, {"Monto a pagar", Currency.Type}, {"¿pagado¡", type text}, {"Pagado en ", type text}, {"IVA (19%)", Currency.Type}, {"Comisión mercago pago", Currency.Type}, {"recibido", Currency.Type}, {"Neto Sin IVA", Currency.Type}}, "es-CL"),
+			    Filtrado = Table.SelectRows(Tipos, each [Hora inicio] <> null),
+			    CanchaClave = Table.DuplicateColumn(Filtrado, "Cancha", "Cancha original"),
+			    Deporte = Table.TransformColumns(CanchaClave, {{"Cancha", each if Text.StartsWith(_, "Cancha P") then "Pádel" else if Text.StartsWith(_, "Cancha T") then "Tenis" else error "Cancha desconocida", type text}}),
+			    Horas = Table.AddColumn(Deporte, "Horas de Uso", each Duration.TotalHours([Hora termino]-[Hora inicio]), type number),
+			    Dia = Table.AddColumn(Horas, "Día correspondiente", each Date.DayOfWeekName([Fecha], "es-CL"), type text),
+			    Orden = Table.AddColumn(Dia, "Orden Día", each Date.DayOfWeek([Fecha], Day.Monday)+1, Int64.Type)
+			in
+			    Orden

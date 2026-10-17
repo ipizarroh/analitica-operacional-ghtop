@@ -1,0 +1,21 @@
+name: Validación reproducible
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  calidad:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Dependencias de lectura
+        run: python -m pip install -r requirements-dev.txt
+      - name: Contratos, calidad e integración
+        run: python -m unittest discover -s tests -v
+      - name: Paridad de cálculos web
+        run: node tests/test_web.mjs
+      - name: HTML reproducible
+        run: |
+          python src/construir_web.py
+          git diff --exit-code -- demo/index.html index.html

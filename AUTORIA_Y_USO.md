@@ -1,9 +1,9 @@
 # Autoría y uso
 
-Portafolio profesional de Ignacio Pizarro Hurtado. La narración documenta experiencia laboral con alcance limitado por las evidencias disponibles. La documentación y demostraciones de esta edición se prepararon en octubre de 2026 con asistencia de IA y revisión de fuentes privadas. El código nuevo no se presenta como código histórico ni como prueba de ejecución individual sin asistencia.
+Los dashboards y trabajos analíticos históricos descritos fueron desarrollados por **Ignacio Pizarro Hurtado**, con las colaboraciones y límites documentados en cada caso. El mantenimiento de soluciones previas, la coordinación con BI/TI y los prototipos se distinguen de su autoría íntegra y de un despliegue productivo.
 
-Este repositorio no tiene afiliación, respaldo ni carácter de publicación oficial de las organizaciones mencionadas. Sus nombres se utilizan para identificar el contexto profesional. No contiene logotipos institucionales ni capturas históricas.
+La reconstrucción y evolución de octubre de 2026 incluye generadores, código nuevo, adaptaciones del modelo, documentación, pruebas y recreaciones visuales posteriores elaboradas con asistencia de IA. Estas piezas no son los entregables laborales originales ni una prueba de ejecución individual sin asistencia. La IA no recibe la autoría de los dashboards históricos.
 
-Los datos de `datos_sinteticos/` son completamente inventados desde cero mediante los generadores incluidos. No son registros anonimizados, reordenados ni reconstruidos a partir de personas reales. Las magnitudes y los patrones no describen la operación real.
+Todos los registros distribuidos son inventados desde cero. No son datos privados anonimizados, reordenados ni parcialmente modificados. Las cifras no describen resultados de ninguna organización. Los documentos y capturas institucionales originales permanecen privados.
 
-No se distribuyen documentos, bases, reportes ni software interno del empleador. Véase `LICENCIA.md` para el alcance limitado de la autorización de uso.
+Portafolio personal sin afiliación, endoso o carácter oficial. No se distribuyen datos, logos, software interno ni políticas institucionales. Los ejemplos de seguridad y mantenimiento son propuestas salvo prueba explícita. La licencia se limita al material propio publicable; véase LICENCIA.md.

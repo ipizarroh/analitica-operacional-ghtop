@@ -1,0 +1,434 @@
+[
+  {
+    "caso": "A",
+    "periodo": "",
+    "categoria": "",
+    "esperado": {
+      "filas": 429,
+      "monto_registrado": 5133000,
+      "monto_positivo": 5133000,
+      "registros_positivos": 385,
+      "ticket_positivo": 13332.467532467532,
+      "cobro_bruto_confirmado_demo": 4706000,
+      "horas": 630.5,
+      "horas_disponibles_sinteticas": 4368,
+      "utilizacion_sintetica": 0.14434523809523808
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "",
+    "categoria": "Tenis",
+    "esperado": {
+      "filas": 218,
+      "monto_registrado": 2328000,
+      "monto_positivo": 2328000,
+      "registros_positivos": 196,
+      "ticket_positivo": 11877.551020408164,
+      "cobro_bruto_confirmado_demo": 2116000,
+      "horas": 321.5,
+      "horas_disponibles_sinteticas": 2184,
+      "utilizacion_sintetica": 0.1472069597069597
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "",
+    "categoria": "Pádel",
+    "esperado": {
+      "filas": 211,
+      "monto_registrado": 2805000,
+      "monto_positivo": 2805000,
+      "registros_positivos": 189,
+      "ticket_positivo": 14841.269841269841,
+      "cobro_bruto_confirmado_demo": 2590000,
+      "horas": 309.0,
+      "horas_disponibles_sinteticas": 2184,
+      "utilizacion_sintetica": 0.14148351648351648
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2025-11",
+    "categoria": "",
+    "esperado": {
+      "filas": 147,
+      "monto_registrado": 1733000,
+      "monto_positivo": 1733000,
+      "registros_positivos": 131,
+      "ticket_positivo": 13229.007633587786,
+      "cobro_bruto_confirmado_demo": 1565000,
+      "horas": 215.5,
+      "horas_disponibles_sinteticas": 1512,
+      "utilizacion_sintetica": 0.14252645502645503
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2025-11",
+    "categoria": "Tenis",
+    "esperado": {
+      "filas": 81,
+      "monto_registrado": 868000,
+      "monto_positivo": 868000,
+      "registros_positivos": 74,
+      "ticket_positivo": 11729.72972972973,
+      "cobro_bruto_confirmado_demo": 820000,
+      "horas": 118.0,
+      "horas_disponibles_sinteticas": 756,
+      "utilizacion_sintetica": 0.15608465608465608
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2025-11",
+    "categoria": "Pádel",
+    "esperado": {
+      "filas": 66,
+      "monto_registrado": 865000,
+      "monto_positivo": 865000,
+      "registros_positivos": 57,
+      "ticket_positivo": 15175.438596491229,
+      "cobro_bruto_confirmado_demo": 745000,
+      "horas": 97.5,
+      "horas_disponibles_sinteticas": 756,
+      "utilizacion_sintetica": 0.12896825396825398
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2025-12",
+    "categoria": "",
+    "esperado": {
+      "filas": 156,
+      "monto_registrado": 1842000,
+      "monto_positivo": 1842000,
+      "registros_positivos": 139,
+      "ticket_positivo": 13251.79856115108,
+      "cobro_bruto_confirmado_demo": 1673000,
+      "horas": 229.5,
+      "horas_disponibles_sinteticas": 1624,
+      "utilizacion_sintetica": 0.14131773399014777
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2025-12",
+    "categoria": "Tenis",
+    "esperado": {
+      "filas": 79,
+      "monto_registrado": 852000,
+      "monto_positivo": 852000,
+      "registros_positivos": 72,
+      "ticket_positivo": 11833.333333333334,
+      "cobro_bruto_confirmado_demo": 748000,
+      "horas": 117.5,
+      "horas_disponibles_sinteticas": 812,
+      "utilizacion_sintetica": 0.14470443349753695
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2025-12",
+    "categoria": "Pádel",
+    "esperado": {
+      "filas": 77,
+      "monto_registrado": 990000,
+      "monto_positivo": 990000,
+      "registros_positivos": 67,
+      "ticket_positivo": 14776.119402985074,
+      "cobro_bruto_confirmado_demo": 925000,
+      "horas": 112.0,
+      "horas_disponibles_sinteticas": 812,
+      "utilizacion_sintetica": 0.13793103448275862
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2026-01",
+    "categoria": "",
+    "esperado": {
+      "filas": 126,
+      "monto_registrado": 1558000,
+      "monto_positivo": 1558000,
+      "registros_positivos": 115,
+      "ticket_positivo": 13547.826086956522,
+      "cobro_bruto_confirmado_demo": 1468000,
+      "horas": 185.5,
+      "horas_disponibles_sinteticas": 1232,
+      "utilizacion_sintetica": 0.15056818181818182
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2026-01",
+    "categoria": "Tenis",
+    "esperado": {
+      "filas": 58,
+      "monto_registrado": 608000,
+      "monto_positivo": 608000,
+      "registros_positivos": 50,
+      "ticket_positivo": 12160.0,
+      "cobro_bruto_confirmado_demo": 548000,
+      "horas": 86.0,
+      "horas_disponibles_sinteticas": 616,
+      "utilizacion_sintetica": 0.1396103896103896
+    }
+  },
+  {
+    "caso": "A",
+    "periodo": "2026-01",
+    "categoria": "Pádel",
+    "esperado": {
+      "filas": 68,
+      "monto_registrado": 950000,
+      "monto_positivo": 950000,
+      "registros_positivos": 65,
+      "ticket_positivo": 14615.384615384615,
+      "cobro_bruto_confirmado_demo": 920000,
+      "horas": 99.5,
+      "horas_disponibles_sinteticas": 616,
+      "utilizacion_sintetica": 0.16152597402597402
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "",
+    "categoria": "",
+    "esperado": {
+      "filas": 524,
+      "monto_registrado": 6196500,
+      "monto_positivo": 6235000,
+      "registros_positivos": 432,
+      "ticket_positivo": 14432.87037037037
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "",
+    "categoria": "TENIS",
+    "esperado": {
+      "filas": 197,
+      "monto_registrado": 2040000,
+      "monto_positivo": 2040000,
+      "registros_positivos": 165,
+      "ticket_positivo": 12363.636363636364
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "",
+    "categoria": "PADEL",
+    "esperado": {
+      "filas": 240,
+      "monto_registrado": 2995000,
+      "monto_positivo": 2995000,
+      "registros_positivos": 197,
+      "ticket_positivo": 15203.045685279189
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "",
+    "categoria": "GASTO",
+    "esperado": {
+      "filas": 11,
+      "monto_registrado": -38500,
+      "monto_positivo": 0,
+      "registros_positivos": 0,
+      "ticket_positivo": null
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-03",
+    "categoria": "",
+    "esperado": {
+      "filas": 82,
+      "monto_registrado": 945500,
+      "monto_positivo": 949000,
+      "registros_positivos": 67,
+      "ticket_positivo": 14164.179104477613
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-03",
+    "categoria": "TENIS",
+    "esperado": {
+      "filas": 30,
+      "monto_registrado": 292000,
+      "monto_positivo": 292000,
+      "registros_positivos": 24,
+      "ticket_positivo": 12166.666666666666
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-03",
+    "categoria": "PADEL",
+    "esperado": {
+      "filas": 42,
+      "monto_registrado": 525000,
+      "monto_positivo": 525000,
+      "registros_positivos": 34,
+      "ticket_positivo": 15441.176470588236
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-03",
+    "categoria": "GASTO",
+    "esperado": {
+      "filas": 1,
+      "monto_registrado": -3500,
+      "monto_positivo": 0,
+      "registros_positivos": 0,
+      "ticket_positivo": null
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-04",
+    "categoria": "",
+    "esperado": {
+      "filas": 175,
+      "monto_registrado": 2216000,
+      "monto_positivo": 2230000,
+      "registros_positivos": 155,
+      "ticket_positivo": 14387.09677419355
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-04",
+    "categoria": "TENIS",
+    "esperado": {
+      "filas": 63,
+      "monto_registrado": 748000,
+      "monto_positivo": 748000,
+      "registros_positivos": 61,
+      "ticket_positivo": 12262.295081967213
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-04",
+    "categoria": "PADEL",
+    "esperado": {
+      "filas": 80,
+      "monto_registrado": 1070000,
+      "monto_positivo": 1070000,
+      "registros_positivos": 69,
+      "ticket_positivo": 15507.246376811594
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-04",
+    "categoria": "GASTO",
+    "esperado": {
+      "filas": 4,
+      "monto_registrado": -14000,
+      "monto_positivo": 0,
+      "registros_positivos": 0,
+      "ticket_positivo": null
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-05",
+    "categoria": "",
+    "esperado": {
+      "filas": 173,
+      "monto_registrado": 1853000,
+      "monto_positivo": 1867000,
+      "registros_positivos": 132,
+      "ticket_positivo": 14143.939393939394
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-05",
+    "categoria": "TENIS",
+    "esperado": {
+      "filas": 67,
+      "monto_registrado": 572000,
+      "monto_positivo": 572000,
+      "registros_positivos": 48,
+      "ticket_positivo": 11916.666666666666
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-05",
+    "categoria": "PADEL",
+    "esperado": {
+      "filas": 80,
+      "monto_registrado": 915000,
+      "monto_positivo": 915000,
+      "registros_positivos": 63,
+      "ticket_positivo": 14523.809523809523
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-05",
+    "categoria": "GASTO",
+    "esperado": {
+      "filas": 4,
+      "monto_registrado": -14000,
+      "monto_positivo": 0,
+      "registros_positivos": 0,
+      "ticket_positivo": null
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-06",
+    "categoria": "",
+    "esperado": {
+      "filas": 94,
+      "monto_registrado": 1182000,
+      "monto_positivo": 1189000,
+      "registros_positivos": 78,
+      "ticket_positivo": 15243.589743589744
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-06",
+    "categoria": "TENIS",
+    "esperado": {
+      "filas": 37,
+      "monto_registrado": 428000,
+      "monto_positivo": 428000,
+      "registros_positivos": 32,
+      "ticket_positivo": 13375.0
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-06",
+    "categoria": "PADEL",
+    "esperado": {
+      "filas": 38,
+      "monto_registrado": 485000,
+      "monto_positivo": 485000,
+      "registros_positivos": 31,
+      "ticket_positivo": 15645.161290322581
+    }
+  },
+  {
+    "caso": "B",
+    "periodo": "2026-06",
+    "categoria": "GASTO",
+    "esperado": {
+      "filas": 2,
+      "monto_registrado": -7000,
+      "monto_positivo": 0,
+      "registros_positivos": 0,
+      "ticket_positivo": null
+    }
+  }
+]
