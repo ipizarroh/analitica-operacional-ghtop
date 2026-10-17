@@ -4,7 +4,7 @@
 
 Desarrollé los dashboards históricos de GHTOP para analizar uso de canchas, actividad y montos registrados en la administración del club. Este portafolio continúa ese trabajo con dos proyectos independientes: **A, noviembre 2025–enero 2026**, y **B, marzo–junio 2026**. La reconstrucción de 2026 conserva el contrato de las tablas y utiliza registros totalmente inventados.
 
-Captura funcional pendiente de revisión de la publicación web.
+![GHTOP: visor de verificación con datos sintéticos](imagenes/ghtop_A_verificado.jpg)
 
 *Captura del visor web posterior, calculado sobre el esquema completo. No es Power BI Desktop ni una captura histórica. La validación nativa de los PBIP sigue pendiente.*
 

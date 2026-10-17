@@ -1,15 +1,15 @@
 // Especificación 2026; ejecución DAX en Desktop pendiente.
 // Suma del universo después de exclusiones M; incluye movimientos negativos.
-Monto con signo = SUM(REGISTRO[MONTO COBRADO])
+Monto con signo = COALESCE(SUM(REGISTRO[MONTO COBRADO]), 0)
 
 // Nombre histórico conservado; suma registros positivos, no conciliación bancaria.
-Ingresos Cobrados = CALCULATE(SUM(REGISTRO[MONTO COBRADO]), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
+Ingresos Cobrados = CALCULATE(COALESCE(SUM(REGISTRO[MONTO COBRADO]), 0), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
 
 // Filas del registro, no arriendos únicos.
-Movimientos = COUNTROWS(REGISTRO)
+Movimientos = COALESCE(COUNTROWS(REGISTRO), 0)
 
 // Denominador del promedio por registro positivo.
-Registros positivos = CALCULATE(COUNTROWS(REGISTRO), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
+Registros positivos = CALCULATE(COALESCE(COUNTROWS(REGISTRO), 0), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
 
 // Promedio por fila positiva; BLANK sin base. No ticket por transacción comercial sin cabecera de venta.
 Ticket Promedio General = DIVIDE([Ingresos Cobrados], [Registros positivos])
@@ -18,7 +18,7 @@ Ticket Promedio General = DIVIDE([Ingresos Cobrados], [Registros positivos])
 Ticket Promedio PADEL = CALCULATE([Ticket Promedio General], KEEPFILTERS(DimLinea[LINEA DE NEGOCIO] = "PADEL"))
 
 // Ejemplo después de comisión MP inventada; diferencia de monto no equivale a deuda.
-Recepción por canales = SUM(REGISTRO[EFECTIVO RECIBIDO]) + SUM(REGISTRO[MONTO RECIBIDO MP])
+Recepción por canales = COALESCE(SUM(REGISTRO[EFECTIVO RECIBIDO]), 0) + COALESCE(SUM(REGISTRO[MONTO RECIBIDO MP]), 0)
 
 // Regla artificial para demostrar campo reservado remapeado; sin condición contractual real.
 Participación administración demo = SUM(REGISTRO[Participación administración (demo)])

@@ -1,7 +1,7 @@
 table 'Arriendos de cancha'
 
 	/// Obligación registrada, incluye importes pendientes; no equivale a caja.
-	measure 'Monto registrado' = SUM('Arriendos de cancha'[Monto a pagar])
+	measure 'Monto registrado' = COALESCE(SUM('Arriendos de cancha'[Monto a pagar]), 0)
 		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Portafolio 2026
 
@@ -11,27 +11,27 @@ table 'Arriendos de cancha'
 		displayFolder: Portafolio 2026
 
 	/// Recepción después de comisión artificial; no es neto tributario.
-	measure 'Recibido neto canal' = SUM('Arriendos de cancha'[recibido])
+	measure 'Recibido neto canal' = COALESCE(SUM('Arriendos de cancha'[recibido]), 0)
 		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Portafolio 2026
 
 	/// Grano fila de uso. No usa recuento de estado de pago.
-	measure 'Registros de uso' = COUNTROWS('Arriendos de cancha')
+	measure 'Registros de uso' = COALESCE(COUNTROWS('Arriendos de cancha'), 0)
 		formatString: #,0
 		displayFolder: Portafolio 2026
 
 	/// Solo el generador garantiza ID único. No extender esa garantía a la fuente histórica.
-	measure 'Reservas únicas demo' = DISTINCTCOUNT('Arriendos de cancha'[ID arriendocancha])
+	measure 'Reservas únicas demo' = COALESCE(DISTINCTCOUNT('Arriendos de cancha'[ID arriendocancha]), 0)
 		formatString: #,0
 		displayFolder: Portafolio 2026
 
 	/// Duración por fila calculada en M. No diferencia de mínimos agregados.
-	measure 'Horas jugadas' = SUM('Arriendos de cancha'[Horas de Uso])
+	measure 'Horas jugadas' = COALESCE(SUM('Arriendos de cancha'[Horas de Uso]), 0)
 		formatString: #,0.0
 		displayFolder: Portafolio 2026
 
 	/// Capacidad sobre días del calendario y canchas filtradas de la dimensión; horario y cierres inventados.
-	measure 'Horas disponibles demo' = SUM(Calendario[Horas disponibles por cancha]) * COUNTROWS(DimCancha)
+	measure 'Horas disponibles demo' = COALESCE(SUM(Calendario[Horas disponibles por cancha]), 0) * COALESCE(COUNTROWS(DimCancha), 0)
 		formatString: #,0.0
 		displayFolder: Portafolio 2026
 
@@ -41,7 +41,7 @@ table 'Arriendos de cancha'
 		displayFolder: Portafolio 2026
 
 	/// Calendario explícito evita contar únicamente días con reservas.
-	measure 'Días abiertos demo' = CALCULATE(COUNTROWS(Calendario), KEEPFILTERS(Calendario[Abierto] = TRUE()))
+	measure 'Días abiertos demo' = CALCULATE(COALESCE(COUNTROWS(Calendario), 0), KEEPFILTERS(Calendario[Abierto] = TRUE()))
 		formatString: #,0
 		displayFolder: Portafolio 2026
 

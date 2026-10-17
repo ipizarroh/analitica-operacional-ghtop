@@ -28,6 +28,6 @@ El análisis puede orientar la programación de actividades hacia días de baja 
 
 La reconstrucción mantiene el esquema completo y usa registros artificiales desde cero. [Modelo/ETL](../documentacion/diseno_y_modelo.md), [KPI](../documentacion/indicadores.md), [antes/actual](../documentacion/evolucion_2026.md) y [fuentes DAX/M](../powerbi/modelos/A/).
 
-Captura funcional pendiente de revisión de la publicación web.
+![Visor funcional sintético A](../imagenes/ghtop_A_verificado.jpg)
 
 Captura web posterior; no captura histórica ni Desktop. El PBIP candidato permanece privado y PENDIENTE_VALIDACION_DESKTOP. [Guía exacta](../documentacion/GUIA_VALIDACION_DESKTOP.md).

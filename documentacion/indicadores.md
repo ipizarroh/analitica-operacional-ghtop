@@ -19,6 +19,8 @@ Todos los ejemplos numéricos siguientes pertenecen exclusivamente al generador 
 | B Movimientos | COUNTROWS | Después de excluir 15 filas RAW demo | 524 demo; no arriendos únicos |
 | B Promedio positivo | Monto positivo / filas positivas | 432 filas positivas; cero/negativo fuera | 14.432,87 demo; no ticket transaccional |
 
+Los conteos y sumas aditivas usan `COALESCE(..., 0)` para un contexto vacío, en coherencia con Python/SQL/JavaScript. Los cocientes conservan ausencia de base.
+
 `DIVIDE` sin resultado alternativo retorna BLANK sin denominador; no convierte falta de base en desempeño cero. `KEEPFILTERS` preserva la intersección con filtros existentes. Las medidas de noviembre/diciembre eliminan solo Calendario y fijan año y mes: se titulan «ventana fija» para que no parezcan responder al segmentador temporal.
 
 La comparación por total mensual no equivale a comparación de productividad: noviembre y enero A, marzo y junio B son parciales. Incluso normalizar por días abiertos de una demo no acredita días abiertos históricos. Los cierres inventados no se etiquetan como lluvia o feriados. No se atribuyen aumentos a promociones ni se presenta una mejora de rendimiento porcentual.

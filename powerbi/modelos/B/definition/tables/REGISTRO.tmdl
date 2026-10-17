@@ -1,22 +1,22 @@
 table 'REGISTRO'
 
 	/// Suma del universo después de exclusiones M; incluye movimientos negativos.
-	measure 'Monto con signo' = SUM(REGISTRO[MONTO COBRADO])
+	measure 'Monto con signo' = COALESCE(SUM(REGISTRO[MONTO COBRADO]), 0)
 		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Portafolio 2026
 
 	/// Nombre histórico conservado; suma registros positivos, no conciliación bancaria.
-	measure 'Ingresos Cobrados' = CALCULATE(SUM(REGISTRO[MONTO COBRADO]), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
+	measure 'Ingresos Cobrados' = CALCULATE(COALESCE(SUM(REGISTRO[MONTO COBRADO]), 0), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
 		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Portafolio 2026
 
 	/// Filas del registro, no arriendos únicos.
-	measure 'Movimientos' = COUNTROWS(REGISTRO)
+	measure 'Movimientos' = COALESCE(COUNTROWS(REGISTRO), 0)
 		formatString: #,0
 		displayFolder: Portafolio 2026
 
 	/// Denominador del promedio por registro positivo.
-	measure 'Registros positivos' = CALCULATE(COUNTROWS(REGISTRO), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
+	measure 'Registros positivos' = CALCULATE(COALESCE(COUNTROWS(REGISTRO), 0), KEEPFILTERS(REGISTRO[MONTO COBRADO] > 0))
 		formatString: #,0
 		displayFolder: Portafolio 2026
 
@@ -31,7 +31,7 @@ table 'REGISTRO'
 		displayFolder: Portafolio 2026
 
 	/// Ejemplo después de comisión MP inventada; diferencia de monto no equivale a deuda.
-	measure 'Recepción por canales' = SUM(REGISTRO[EFECTIVO RECIBIDO]) + SUM(REGISTRO[MONTO RECIBIDO MP])
+	measure 'Recepción por canales' = COALESCE(SUM(REGISTRO[EFECTIVO RECIBIDO]), 0) + COALESCE(SUM(REGISTRO[MONTO RECIBIDO MP]), 0)
 		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Portafolio 2026
 
