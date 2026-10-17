@@ -6,7 +6,7 @@ Desarrollé los dashboards históricos de GHTOP para analizar uso de canchas, ac
 
 ![GHTOP: visor de verificación con datos sintéticos](imagenes/ghtop_A_verificado.jpg)
 
-*Captura del visor web posterior, calculado sobre el esquema completo. No es Power BI Desktop ni una captura histórica. La validación nativa de los PBIP sigue pendiente.*
+*Captura del visor web posterior, calculado sobre el esquema completo. No es Power BI Desktop ni una captura histórica.
 
 ## Mi trabajo y la evolución técnica
 
